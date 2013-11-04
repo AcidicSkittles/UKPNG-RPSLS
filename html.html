@@ -1,3 +1,34 @@
+<!DOCTYPE html>
+<applet id="app"
+        archive="CustomClient.java"
+</applet>
+<script language="javascript">
+function displayScores() {
+	for (i=1;i<=app.playerNames[i].length;i++) 
+	{
+		document.getElementById("scores").alert(app.scores[i]);
+	}
+}
+
+function displayPlayerNames() {
+for (i=1;i<=app.playerNames[i].length;i++) 
+	{
+		document.getElementById("playernames").alert(app.playerNames[i]);
+	}
+}
+function displayWinner() {
+		document.getElementById("winner").alert(app.won);
+}
+function sendMove() {
+
+app.sendMove(document.getElementById("choice").value);
+
+}
+document.getElementById("paragraph").innerHTML=countNum();
+</script>
+
+
+
 <h1 id="winner">Player x wins!</h1>
 <table id="scoreboard" border="1">
 <tr>
@@ -6,24 +37,25 @@
 <th>Status<</th>
 <th>Move</th>
 </tr>
-<tr>
+<tr id="playernames">
 <td>Derek Buchanan</td>
 <td>Anthony Saunders</td>
 </tr>
-<tr>
+<tr id="scores">
 <td>1</td>
 <td>1</td>
 </tr>
-<tr>
+<tr id="status">
 <td>waiting</td>
 <td>ready</td>
 </tr>
-<tr>
+<tr id="winner">
 <td>?</td>
 <td>?</td>
 </tr>
 </table>
-<select id="choice">
+
+<select id="choice" onchange="sendMove()">
   <option value="rock">Rock</option>
   <option value="paper">Paper</option>
   <option value="scissors">Scissors</option>
