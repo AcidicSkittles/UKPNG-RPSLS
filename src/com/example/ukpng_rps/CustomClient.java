@@ -23,17 +23,23 @@ WebView field;
 	@Override
 	protected void displayWinner(Integer winner) {
 		super.displayWinner(winner);
-		field.loadUrl(url);
+		field.getSettings().setJavaScriptEnabled(true); // unless you set this true elsewhere then its fine
+        field.loadUrl("file:///android_asset/html.html the file location of the html");
+        field.loadUrl("javascript:displayWinner("+winner+")");
 	}
 	@Override
 	protected void displayPlayerNames() {
 		super.displayPlayerNames();
-		field.loadUrl(url);
+		field.getSettings().setJavaScriptEnabled(true); // unless you set this true elsewhere then its fine
+        field.loadUrl("file:///android_asset/html.html the file location of the html");
+        field.loadUrl("javascript:displayPlayerNames()");;
 	}
 	@Override
 	protected void displayScores(){
 		super.displayScores();
-		field.loadUrl(url);
+		field.getSettings().setJavaScriptEnabled(true); // unless you set this true elsewhere then its fine
+        field.loadUrl("file:///android_asset/html.html the file location of the html");
+        field.loadUrl("javascript:displayScores()");
 	}
 	@JavascriptInterface
 	public void sendMove(String move){
